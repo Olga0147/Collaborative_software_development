@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Csd</string>
+    <string name="vstrecha">Vstrecha</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="password">password</string>
+    <string name="forget_pass_ru"> <u>Забыли пароль?</u></string>
+    <string name="enter_ru">Войти</string>
+    <string name="registration_ru">Регистрация</string>
+    <string name="google_enter_ru">Войти через Google</string>
+    <string name="email_ru">Электронная почта</string>
+    <string name="second_name_ru">Фамилия</string>
+    <string name="name_ru">Имя</string>
+    <string name="password_ru">Пароль</string>
+    <string name="password_duplicate_ru">Повторите пароль</string>
+    <string name="to_register_ru">Зарегистрироваться</string>
+    <string name="registration_success">Успех!</string>
+    <string name="request_error">Ошибка!</string>
+    <string name="input_error">Ошибка ввода данных</string>
+    <string name="auth_error_default_msg">Введены неверные данные</string>
+</resources>

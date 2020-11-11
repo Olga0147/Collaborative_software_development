@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Vstrecha_Text_Button" parent="@style/Widget.AppCompat.Button.Borderless" >
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:paddingLeft">@dimen/mtrl_btn_text_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/mtrl_btn_text_btn_padding_right</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="rippleColor">@color/white</item>
+
+    </style>
+
+
+
+</resources>
