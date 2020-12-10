@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.work.MainActivity"/>
+        <activity android:name=".presentation.eventList.EventListActivity"/>
+        <activity android:name=".presentation.newEvent.NewEventActivity" />
+        <activity android:name=".presentation.detailedEvent.DetailedEventActivity" />
 
     </application>
 </manifest>

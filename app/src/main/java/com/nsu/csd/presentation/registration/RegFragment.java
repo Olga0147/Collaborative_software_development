@@ -42,17 +42,17 @@ public class RegFragment extends Fragment {
         public void onClick(View v) {
 
             if(!Validation.isEmailValid(email.getText().toString())){
-                changeError_msg("Bad email");
+                changeError_msg("Неверная почта");
 
             }else if(!Validation.isPasswordsValid(
                     password.getText().toString(),
                     password_duplicate.getText().toString()) ){
-                changeError_msg("Bad password");
+                changeError_msg("Неверный пароль");
 
             }else if(!Validation.isUserValid(
                     first_name.getText().toString(),
                     last_name.getText().toString())){
-                changeError_msg("Bad first or last name");
+                changeError_msg("Неверное имя или фамилия");
 
             }else  {
                 UserRegistrationDTO userRegistrationDTO = new UserRegistrationDTO(
@@ -71,13 +71,9 @@ public class RegFragment extends Fragment {
                             public void onResponse(retrofit2.Call<Void> call, final retrofit2.Response<Void> response) {
                                 mainHandler.post(() -> {
                                     if (!response.isSuccessful()) {
-                                        try {
-                                            ServerError serverError = gson.fromJson(response.errorBody().string(), ServerError.class);
-                                            changeError_msg(serverError.getMessage());
-                                        } catch (IOException e) {
-                                            changeError_msg("sorry, some error exists");
-                                            //TODO: log
-                                        }
+                                        //ServerError serverError = gson.fromJson(response.errorBody().string(), ServerError.class);
+                                        //changeError_msg(serverError.getMessage());
+                                        changeError_msg("Упс, произошла ошибка");
                                     } else {
                                         showMessage(R.string.registration_success);
                                         getFragmentManager().popBackStack();
@@ -87,7 +83,7 @@ public class RegFragment extends Fragment {
 
                             @Override
                             public void onFailure(retrofit2.Call<Void> call, Throwable t) {
-                                mainHandler.post(() -> changeError_msg("Connection error"));
+                                mainHandler.post(() -> changeError_msg("Ошибка подключения"));
                             }
                         });
             }

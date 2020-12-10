@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:transitionName="container"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/event_color"
+    >
+
+    <TextView
+        android:id="@+id/time_of_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:text="@string/_11_00_12_00"
+        android:textSize="30sp"
+        tools:ignore="NestedWeights,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/title_of_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:text="@string/do_job"
+        android:textSize="40sp"
+        tools:ignore="NestedWeights,RtlHardcoded" />
+
+</LinearLayout>

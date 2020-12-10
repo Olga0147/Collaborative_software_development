@@ -14,4 +14,15 @@ public class AuthActivity extends SingleFragmentActivity {
     protected Fragment getFragment() {
         return AuthFragment.newInstance();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Integer i  = getSupportFragmentManager().getBackStackEntryCount();
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+            finish();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+    }
 }

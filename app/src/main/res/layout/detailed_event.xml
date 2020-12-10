@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    >
+    <TextView
+        android:id="@+id/new_event_error1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/error_color"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text=""/>
+
+    <EditText
+        android:id="@+id/event_title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/name"
+        android:inputType="text"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/date"/>
+        <EditText
+            android:id="@+id/event_date1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_22_11_20"
+            android:inputType="date"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/start_time"/>
+        <EditText
+            android:id="@+id/start_time1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_11_20"
+            android:inputType="time"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/end_time"/>
+        <EditText
+            android:id="@+id/end_time1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_14_20"
+            android:inputType="time"
+            android:clickable="false"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/vaznost"/>
+
+    <RadioGroup
+        android:id="@+id/radio_gr_ev1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
+        <RadioButton
+            android:id="@+id/low_rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/low"/>
+        <RadioButton
+            android:id="@+id/middle_rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/middle"/>
+        <RadioButton
+            android:id="@+id/hight_rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/hight"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/povtor"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="7"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/pn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/pn"/>
+        <CheckBox
+            android:id="@+id/vt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/vt"/>
+        <CheckBox
+            android:id="@+id/sr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/sr"/>
+        <CheckBox
+            android:id="@+id/cht1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/cht"/>
+        <CheckBox
+            android:id="@+id/pt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/pt"/>
+        <CheckBox
+            android:id="@+id/sb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/sb"/>
+        <CheckBox
+            android:id="@+id/vs1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:text="@string/vs"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/opisanie"/>
+
+    <EditText
+        android:id="@+id/opisanie1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:inputType="textCapSentences|textMultiLine"
+        android:clickable="false"
+        android:maxLength="2000"
+        android:maxLines="4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="2"
+        >
+
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="редактировать"
+            android:textStyle="bold"
+            android:backgroundTint="@color/text_color"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="удалить"
+            android:textStyle="bold"
+            android:backgroundTint="@color/text_color"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

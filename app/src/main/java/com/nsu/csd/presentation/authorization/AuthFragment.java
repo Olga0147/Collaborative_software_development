@@ -1,6 +1,8 @@
 package com.nsu.csd.presentation.authorization;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -21,14 +23,18 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nsu.csd.data.remote.ApiUtils;
 import com.nsu.csd.R;
+import com.nsu.csd.model.TokenDTO;
 import com.nsu.csd.model.ServerError;
 import com.nsu.csd.model.UserLoginDTO;
 import com.nsu.csd.presentation.common.Validation;
 import com.nsu.csd.presentation.registration.RegFragment;
-import com.nsu.csd.presentation.work.MainActivity;
+import com.nsu.csd.presentation.eventList.EventListActivity;
 
 import java.io.IOException;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class AuthFragment extends Fragment {
 
@@ -43,11 +49,8 @@ public class AuthFragment extends Fragment {
         this.error_msg.setText(error_msg);
     }
 
-    private final View.OnClickListener onClickListener_forget_pass = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        //TODO: forget_pass
-        }
+    private final View.OnClickListener onClickListener_forget_pass = v -> {
+    //TODO: forget_pass
     };
 
     private final View.OnClickListener onClickListener_enter = new View.OnClickListener() {
@@ -59,25 +62,28 @@ public class AuthFragment extends Fragment {
 
                 UserLoginDTO userLoginDTO = new UserLoginDTO(email.getText().toString(), password.getText().toString());
                 ApiUtils.getApiService().sign_in(userLoginDTO).enqueue(
-                        new retrofit2.Callback<Void>(){
+                        new retrofit2.Callback<TokenDTO>(){
 
                             final Handler mainHandler = new Handler(getActivity().getMainLooper());
 
                             @Override
-                            public void onResponse(retrofit2.Call<Void> call, final retrofit2.Response<Void> response) {
+                            public void onResponse(Call<TokenDTO> call, final Response<TokenDTO> response) {
                                 mainHandler.post(() -> {
                                     if (!response.isSuccessful()) {
                                         try {
                                             ServerError serverError = gson.fromJson(response.errorBody().string(), ServerError.class);
                                             changeError_msg(serverError.getMessage());
                                         } catch (IOException e) {
-                                            changeError_msg("sorry, some error exists");
-                                            //TODO: log
+                                            changeError_msg("Упс, произошла ошибка :(");
                                         }
                                     } else {
                                         showMessage(R.string.registration_success);
+                                        SharedPreferences prefs = Objects.requireNonNull(getContext()).getSharedPreferences("com.example.myapp.PREFERENCE", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        editor.putString("token",response.body().getToken());
+                                        editor.apply();
                                         getFragmentManager().popBackStack();
-                                        Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+                                        Intent mainIntent = new Intent(getActivity(), EventListActivity.class);
                                         startActivity(mainIntent);
                                         getActivity().finish();
                                     }
@@ -85,13 +91,13 @@ public class AuthFragment extends Fragment {
                             }
 
                             @Override
-                            public void onFailure(retrofit2.Call<Void> call, Throwable t) {
-                                mainHandler.post(() -> changeError_msg("Connection error"));
+                            public void onFailure(retrofit2.Call<TokenDTO> call, Throwable t) {
+                                mainHandler.post(() -> changeError_msg("Ошибка сервера"));
                             }
                         }
                 );//enqueue() Для асинхронного получения
             } else {
-                changeError_msg("Bad email or password");
+                changeError_msg("Неверная почта или пароль");
             }
 
         }
