@@ -2,7 +2,7 @@
     <string name="app_name">Csd</string>
     <string name="vstrecha">Vstrecha</string>
     <string name="example_gmail_com">example@gmail.com</string>
-    <string name="password">password</string>
+    <string name="password">пароль</string>
     <string name="forget_pass_ru"> <u>Забыли пароль?</u></string>
     <string name="enter_ru">Войти</string>
     <string name="registration_ru">Регистрация</string>

@@ -72,7 +72,8 @@ public class AuthFragment extends Fragment {
                                     if (!response.isSuccessful()) {
                                         try {
                                             ServerError serverError = gson.fromJson(response.errorBody().string(), ServerError.class);
-                                            changeError_msg(serverError.getMessage());
+                                            //changeError_msg(serverError.getMessage());
+                                            changeError_msg("Неверный пароль или почта");
                                         } catch (IOException e) {
                                             changeError_msg("Упс, произошла ошибка :(");
                                         }
