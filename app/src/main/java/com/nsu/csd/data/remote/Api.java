@@ -1,7 +1,10 @@
 package com.nsu.csd.data.remote;
 
 import com.nsu.csd.model.EventDTO;
+import com.nsu.csd.model.MeetingInfoDto;
+import com.nsu.csd.model.MeetingSummaryDto;
 import com.nsu.csd.model.NewEventDTO;
+import com.nsu.csd.model.NewMeetingDto;
 import com.nsu.csd.model.TokenDTO;
 import com.nsu.csd.model.EventSummaryWithIdDTO;
 import com.nsu.csd.model.UserLoginDTO;
@@ -45,5 +48,20 @@ public interface Api {
 
     @PUT("events")
     Call<Void> update_event(@Body EventDTO o);
+
+    @GET("meetings")
+    Call<List<MeetingSummaryDto>> get_meet_list();
+
+    @POST("meetings")
+    Call<Void> save_meet(@Body NewMeetingDto o);
+
+    @GET("meetings/{id}")
+    Call<MeetingInfoDto> get_month_full(@Path("id") String id);
+
+    @POST("meetings/{meetingId}/actions/joining")
+    Call<Void> add_to_meet(@Path("meetingId") String id);
+
+    @POST("meetings/{meetingId}/actions/leaving")
+    Call<Void> leave_meet(@Path("meetingId") String id);
 
 }

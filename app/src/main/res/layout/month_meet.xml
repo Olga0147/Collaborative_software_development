@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+    <Button
+        android:id="@+id/people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/text_color"
+        android:text="@string/list_visitors"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/meet_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:text="Title"/>
+
+    <TextView
+        android:id="@+id/date_meet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:text="@string/_10_10_1010_11_11_1111"
+        android:textSize="20sp"
+         />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <Button
+            android:id="@+id/left_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/left"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/text_color"
+            />
+
+        <TextView
+            android:id="@+id/month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:text="@string/december"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/right_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/right"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/text_color"
+            />
+
+    </LinearLayout>
+
+
+
+    <TableLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="fill_parent"
+        android:layout_weight="7"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:weightSum="7"
+            >
+            <TextView
+                android:background="@color/white"
+                android:text="@string/pn"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+            <TextView
+                android:background="@color/white"
+                android:text="@string/vt"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+            <TextView
+                android:background="@color/white"
+                android:text="@string/sr"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+            <TextView
+                android:background="@color/white"
+                android:text="@string/cht"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+            <TextView
+                android:background="@color/white"
+                android:text="@string/pt"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+            <TextView
+                android:background="@color/white"
+                android:text="@string/sb"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+            <TextView
+                android:background="@color/white"
+                android:text="@string/vs"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_height="28dp"
+                android:layout_margin="10dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/_1_week"
+            android:weightSum="7"
+            >
+        </TableRow>
+        <TableRow
+            android:id="@+id/_2_week"
+            android:weightSum="7"
+            >
+        </TableRow>
+        <TableRow
+            android:id="@+id/_3_week"
+            android:weightSum="7"
+            >
+        </TableRow>
+        <TableRow
+            android:id="@+id/_4_week"
+            android:weightSum="7"
+            >
+        </TableRow>
+        <TableRow
+            android:id="@+id/_5_week"
+            android:weightSum="7"
+            >
+        </TableRow>
+        <TableRow
+            android:id="@+id/_6_week"
+            android:weightSum="7"
+            >
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/meet_smb_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+            android:layout_weight="1"
+            android:backgroundTint="@color/text_color"
+            android:text="@string/meet_sbm"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/leave_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:backgroundTint="@color/text_color"
+            android:text="@string/Leave"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

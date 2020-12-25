@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +24,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nsu.csd.R;
+import com.nsu.csd.data.remote.ApiUtils;
 import com.nsu.csd.data.remote.ApiUtilsToken;
 import com.nsu.csd.model.EventSummaryWithIdDTO;
 import com.nsu.csd.model.ServerError;
+import com.nsu.csd.presentation.authorization.AuthActivity;
+import com.nsu.csd.presentation.meetList.MeetListActivity;
 import com.nsu.csd.presentation.newEvent.NewEventActivity;
 
 import java.io.IOException;
@@ -55,8 +59,11 @@ public class EventListFragment extends Fragment {
     private Button left;
     private Button right;
 
+    private ImageButton meetBtn;
+    private ImageButton outBtn;
+
+
     private List<EventSummaryWithIdDTO> eventSummaryWithIdDTOS;
-    Gson gson = new GsonBuilder().create();
 
     public static EventListFragment newInstance() {
         Bundle args = new Bundle();
@@ -74,9 +81,28 @@ public class EventListFragment extends Fragment {
 
     }
 
+    private final View.OnClickListener onClickListener_meet = v -> {
+        Intent mainIntent = new Intent(getActivity(), MeetListActivity.class);
+        startActivity(mainIntent);
+        getActivity().finish();
+    };
 
     private final View.OnClickListener onClickListener_new_event = v -> {
+        @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");;
+        String d = dateFormat.format(currentDate);
+
         Intent mainIntent = new Intent(getActivity(), NewEventActivity.class);
+        mainIntent.putExtra("start",d);
+        startActivity(mainIntent);
+        getActivity().finish();
+    };
+
+    private final View.OnClickListener onClickListener_out = v -> {
+        ApiUtils.deleteApiService();
+        ApiUtilsToken.deleteApiService();
+        SharedPreferences prefs = Objects.requireNonNull(getContext()).getSharedPreferences("com.example.myapp.PREFERENCE", Context.MODE_PRIVATE);
+        prefs.edit().remove("token").apply();
+        Intent mainIntent = new Intent(getActivity(), AuthActivity.class);
         startActivity(mainIntent);
         getActivity().finish();
     };
@@ -132,6 +158,12 @@ public class EventListFragment extends Fragment {
         newEventButton = view.findViewById(R.id.new_event_btn);
         newEventButton.setOnClickListener(onClickListener_new_event);
 
+        meetBtn = view.findViewById(R.id.main_menu_location_btn);
+        meetBtn.setOnClickListener(onClickListener_meet);
+
+        outBtn = view.findViewById(R.id.main_menu_settings_btn);
+        outBtn.setOnClickListener(onClickListener_out);
+
         Bundle arguments = getActivity().getIntent().getExtras();
         if(arguments!=null && arguments.containsKey("date")){
             currentDate = stringToDate((String) arguments.get("date"));
@@ -140,7 +172,8 @@ public class EventListFragment extends Fragment {
         }
 
         //узнаем текущюю дату
-        String y = String.valueOf(currentDate.getYear()+1900);
+        int i = currentDate.getYear();
+        String y = String.valueOf(i+1900);
         String m = String.valueOf(currentDate.getMonth()+1);
         String d = String.valueOf(currentDate.getDate());
         TextView date = view.findViewById(R.id.event_data);

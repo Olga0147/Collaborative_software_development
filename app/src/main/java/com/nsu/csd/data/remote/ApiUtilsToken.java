@@ -17,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiUtilsToken {
 
     private static Retrofit retrofit;
-    private static Retrofit retrofitT;
     private static OkHttpClient client;
     private static Gson gson;
     private static Api api;
@@ -25,9 +24,7 @@ public class ApiUtilsToken {
     public static OkHttpClient getBasicAuthClient(String token, boolean createNewInstance) {
         if (createNewInstance || client == null) {
             OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
-            builder.authenticator((route, response) -> {
-                return response.request().newBuilder().header("Authorization", token).build();
-            });
+            builder.authenticator((route, response) -> response.request().newBuilder().header("Authorization", token).build());
             builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
 
             client = builder.build();
@@ -54,5 +51,11 @@ public class ApiUtilsToken {
             api = getRetrofit(token).create(Api.class);//Создаем объект, при помощи которого будем выполнять запросы
         }
         return api;
+    }
+
+    public static void deleteApiService(){
+        retrofit = null;
+        api = null;
+        client = null;
     }
 }

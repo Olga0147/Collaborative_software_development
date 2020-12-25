@@ -205,6 +205,9 @@ public class NewEventFragment extends Fragment {
         SharedPreferences prefs = Objects.requireNonNull(getContext()).getSharedPreferences("com.example.myapp.PREFERENCE", Context.MODE_PRIVATE);
         token =  prefs.getString("token","");
 
+        Bundle arguments = getActivity().getIntent().getExtras();
+        String s = (String) arguments.get("start");
+
         View view = inflater.inflate(R.layout.new_event,container,false);
 
         errorText = view.findViewById(R.id.new_event_error);
@@ -212,6 +215,7 @@ public class NewEventFragment extends Fragment {
         eventTitle = view.findViewById(R.id.event_title);
 
         eventDate = view.findViewById(R.id.event_date);
+        eventDate.setText(s);
         eventStart = view.findViewById(R.id.start_time);
         eventEnd = view.findViewById(R.id.end_time);
 

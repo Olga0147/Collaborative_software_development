@@ -12,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiUtils {
 
     private static Retrofit retrofit;
-    private static Retrofit retrofitT;
     private static OkHttpClient client;
     private static Gson gson;
     private static Api api;
@@ -53,4 +52,11 @@ public class ApiUtils {
         }
         return api;
     }
+
+    public static void deleteApiService(){
+        retrofit = null;
+        api = null;
+        client = null;
+    }
+
 }

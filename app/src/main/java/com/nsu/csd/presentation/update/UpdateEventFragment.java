@@ -1,5 +1,6 @@
 package com.nsu.csd.presentation.update;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,9 +30,11 @@ import com.nsu.csd.model.ServerError;
 import com.nsu.csd.presentation.eventList.EventListActivity;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -255,6 +258,7 @@ public class UpdateEventFragment extends Fragment {
         }
 
         String rr = eventDTO.getRecurrenceRule();
+        rr = rr.split(";")[1];
         if(rr!=null){
             if(rr.contains("MO")){pn.setChecked(true);}
             if(rr.contains("TU")){vt.setChecked(true);}
@@ -304,7 +308,10 @@ public class UpdateEventFragment extends Fragment {
                             } else {
                                 showMessage(R.string.registration_success);
                                 getFragmentManager().popBackStack();
+                                String newDate = eventDate.getText().toString();
+
                                 Intent mainIntent = new Intent(getActivity(), EventListActivity.class);
+                                mainIntent.putExtra("date",newDate);
                                 startActivity(mainIntent);
                                 getActivity().finish();
                             }

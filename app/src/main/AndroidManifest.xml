@@ -23,6 +23,10 @@
         <activity android:name=".presentation.eventList.EventListActivity"/>
         <activity android:name=".presentation.newEvent.NewEventActivity" />
         <activity android:name=".presentation.detailedEvent.DetailedEventActivity" />
+        <activity android:name=".presentation.meetList.MeetListActivity" />
+        <activity android:name=".presentation.newMeet.NewMeetActivity" />
+        <activity android:name=".presentation.monthMeet.MonthMeetActivity" />
+        <activity android:name=".presentation.meetPeople.MeetPeopleActivity" />
 
     </application>
 </manifest>

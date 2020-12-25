@@ -10,4 +10,7 @@
     <color name="text_color">#7C0A02</color>
     <color name="error_color">#F20000</color>
     <color name="event_color">#E5E5E5</color>
+    <color name="green">#76ff7a</color>
+    <color name="orange">#e66760</color>
+    <color name="yellow">#ffff99</color>
 </resources>

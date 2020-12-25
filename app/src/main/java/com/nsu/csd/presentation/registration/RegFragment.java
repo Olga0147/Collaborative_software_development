@@ -71,7 +71,11 @@ public class RegFragment extends Fragment {
                             public void onResponse(retrofit2.Call<Void> call, final retrofit2.Response<Void> response) {
                                 mainHandler.post(() -> {
                                     if (!response.isSuccessful()) {
-                                        //ServerError serverError = gson.fromJson(response.errorBody().string(), ServerError.class);
+                                        try {
+                                            ServerError serverError = gson.fromJson(response.errorBody().string(), ServerError.class);
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
                                         //changeError_msg(serverError.getMessage());
                                         changeError_msg("Упс, произошла ошибка");
                                     } else {

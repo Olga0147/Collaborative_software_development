@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    >
+    <TextView
+        android:id="@+id/new_meet_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/error_color"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text=""/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:background="@color/event_color"
+        android:layout_gravity="top"
+        android:layout_marginBottom="20dp"
+        android:text="@string/people"/>
+
+    <TextView
+        android:id="@+id/people"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="20dp"
+        android:scrollbars = "vertical"
+        android:textColor="@color/black"
+        android:gravity="left"
+        android:text="Петр Петрович Петров"/>
+
+
+
+</LinearLayout>

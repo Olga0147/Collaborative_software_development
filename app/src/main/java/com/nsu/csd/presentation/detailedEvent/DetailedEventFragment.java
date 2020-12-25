@@ -65,16 +65,12 @@ public class DetailedEventFragment extends Fragment {
     Button update;
     Button delete;
 
-    View.OnClickListener onClickListener_update_btn = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //TODO
-            FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
-            fragmentManager.beginTransaction().
-                    replace(R.id.fragment_container_id, UpdateEventFragment.newInstance()).
-                    addToBackStack(UpdateEventFragment.class.getName()).
-                    commit();
-        }
+    View.OnClickListener onClickListener_update_btn = v -> {
+        FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+        fragmentManager.beginTransaction().
+                replace(R.id.fragment_container_id, UpdateEventFragment.newInstance()).
+                addToBackStack(UpdateEventFragment.class.getName()).
+                commit();
     };
 
     View.OnClickListener onClickListener_delete = v -> deleteEvent();
@@ -97,6 +93,7 @@ public class DetailedEventFragment extends Fragment {
         Bundle arguments = getActivity().getIntent().getExtras();
         if(arguments!=null){
             event_id  = arguments.get("event_id").toString();
+            prefs.edit().putString("event_id",event_id).apply();
         }
 
         FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
@@ -244,10 +241,13 @@ public class DetailedEventFragment extends Fragment {
         }
 
         String rr = eventDTO.getRecurrenceRule();
+        rr = rr.split(";")[1];
         if(rr!=null){
             if(rr.contains("MO")){pn.setChecked(true);}
             if(rr.contains("TU")){vt.setChecked(true);}
-            if(rr.contains("WE")){sr.setChecked(true);}
+            if(rr.contains("WE")){
+                sr.setChecked(true);
+            }
             if(rr.contains("TH")){cht.setChecked(true);}
             if(rr.contains("FR")){pt.setChecked(true);}
             if(rr.contains("SA")){sb.setChecked(true);}

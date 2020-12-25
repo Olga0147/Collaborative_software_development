@@ -54,5 +54,22 @@
     <string name="data_format_error">Упс, данные в неверном формате</string>
     <string name="event_error">Упс, не можем получить данные</string>
     <string name="date_error">Формат даты dd.mm.yyyy. Формат времени hh:mm</string>
+    <string name="date1_error">Формат даты dd.mm.yyyy</string>
+    <string name="date2_error">Дата начала больше даты конца</string>
     <string name="import_error">Важность должна быть установлена</string>
+    <string name="d2020_12_23">2020-12-23</string>
+    <string name="day_from">Выбрать день с</string>
+    <string name="to">по</string>
+    <string name="find">Найти</string>
+    <string name="list_visitors">Список участников</string>
+    <string name="_00">00</string>
+    <string name="_10_10_1010_11_11_1111">10.10.1010 - 11.11.1111</string>
+    <string name="december">Декабрь</string>
+    <string name="meet_sbm">Пригласить</string>
+    <string name="Leave">Покинуть</string>
+    <string name="abvgd">code</string>
+    <string name="vved_kod">Введите уникальный код встречи:</string>
+    <string name="join">Присоединиться</string>
+    <string name="people">Участники</string>
+
 </resources>
